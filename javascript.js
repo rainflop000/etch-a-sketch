@@ -11,6 +11,12 @@ for (let row = 0; row < 16; row++) {
         rowDiv.appendChild(cell);
     }
     containerDiv.appendChild(rowDiv);
-    
 }
+
+const cells = document.querySelectorAll('.cell');
+cells.forEach(cell => {
+    cell.addEventListener('mouseenter', () => {
+        cell.style.backgroundColor = 'gray';
+});
+}); 
 
