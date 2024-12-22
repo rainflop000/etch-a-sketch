@@ -1,17 +1,27 @@
 
+.user-size-popup {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .div-container {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
     max-width: 96%;
+    height: 650px;
+    width: 650px;
+    margin: 20px auto;
 }
 
 .row {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex: 1;
 }
-
 
 .cell {
     border: 1px solid black;
@@ -19,4 +29,5 @@
     flex-wrap: wrap;
     align-items: center;
     aspect-ratio: 1;
+    transition: background-color 0.2s;
 }
