@@ -1,6 +1,6 @@
-
 const containerDiv = document.querySelector('.div-container');
 let gridSize = 16;
+let drawing = false;
 
 drawGrid(gridSize);
 
@@ -30,9 +30,25 @@ function drawGrid(gridSize) {
     }
 
     const cells = document.querySelectorAll('.cell');
+
     cells.forEach(cell => {
-        cell.addEventListener('mouseenter', () => {
+        cell.addEventListener('mousedown', () => {
+            drawing = true;
             cell.style.backgroundColor = 'gray';
+    });
+
+    cell.addEventListener('mouseover', () => {
+        if (drawing) {
+            cell.style.backgroundColor = 'gray';
+        }
+    });
+
+    cell.addEventListener('mouseup', () => {
+        drawing = false;
+    });
+
+    containerDiv.addEventListener('mouseleave', () => {
+        drawing = false;
     });
 }); 
 
