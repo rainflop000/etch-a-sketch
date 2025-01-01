@@ -1,16 +1,36 @@
-
-.user-size-popup {
-    display: block;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 1px solid black;
-    border-radius: 20px;
-    color: white;
-    background-color: black;
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.div-container {
+.btn-container button {
+    margin: 15px;  
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
+.grid-size-btn {
+    color: white;
+    background-color: black;
+    font-weight: bold;
+}
+
+.clear-btn {
+    background-color: white;
+    font-weight: 10px;
+    font-weight: bold;
+}
+
+.btn-container button:active {
+    background-color: lightgray;
+    transition: 0.15s;
+}
+
+.grid-container {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
