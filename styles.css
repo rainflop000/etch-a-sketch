@@ -1,3 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.headings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Arial", sans-serif;
+    gap: 1px;
+}
+
+.headings h2, p {
+    margin-bottom: 2px;
+}
+
 .btn-container {
     display: flex;
     justify-content: center;
@@ -6,11 +28,12 @@
 }
 
 .btn-container button {
-    margin: 15px;  
+    margin: 15px;
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;
-
+    margin-bottom: 2px;
+    margin-top: 20px;
 }
 
 .grid-size-btn {
@@ -34,24 +57,38 @@
     border: 2px solid black;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     max-width: 96%;
-    height: 650px;
-    width: 650px;
+    max-height: 96%;
+    aspect-ratio: 1;
     margin: 20px auto;
+    box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
 .row {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: stretch;
+    align-items: stretch;
     flex: 1;
+    width: 100%;
 }
 
 .cell {
-    border: 1px solid black;
-    flex: 1;
+    border-right: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    box-sizing: border-box;
+    flex: 1 1 0%;
     flex-wrap: wrap;
     align-items: center;
     aspect-ratio: 1;
     transition: 0.2s;
 }
+
+.cell:last-child {
+    border-right: none;
+  }
+  
+  .row:last-child .cell {
+    border-bottom: none;
+  }
