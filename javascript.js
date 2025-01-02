@@ -35,6 +35,9 @@ function drawGrid(gridSize) {
         containerDiv.appendChild(rowDiv);
     }
 
+    // Display current grid size
+    document.querySelector('.grid-size-display').textContent = `Grid size: ${gridSize} x ${gridSize}`;
+
     const cells = document.querySelectorAll('.cell');
 
     // Start drawing
