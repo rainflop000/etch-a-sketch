@@ -1,7 +1,6 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -9,11 +8,7 @@
 }
 
 .headings {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1px;
+    text-align: center;
 }
 
 .headings h2, p {
@@ -22,37 +17,33 @@
 
 .grid-size-display {
     color: #2c3e50;
-    margin: 10px 0;
     font-size: 0.85rem;
   }
 
 .btn-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    gap: 10px;
 }
 
 .btn-container button {
     margin: 15px;
-    border: 1px solid #2c3e50 !important;
+    border: 1px solid #2c3e50;
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 2px;
     margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .grid-size-btn {
     color: white;
     background-color: #2c3e50;
-    font-weight: bold;
 }
 
 .clear-btn {
     color: #2c3e50;
     background-color: white;
-    font-weight: 10px;
-    font-weight: bold;
 }
 
 .btn-container button:hover {
@@ -60,7 +51,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
-
 .btn-container button:active {
     background-color: lightgray;
     transition: 0.15s;
@@ -79,6 +69,7 @@
     margin-bottom: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     background-color: white;
+    cursor: pointer;
 }
 
 .row {
@@ -99,11 +90,3 @@
     aspect-ratio: 1;
     transition: 0.2s;
 }
-
-.cell:last-child {
-    border-right: none;
-  }
-  
-  .row:last-child .cell {
-    border-bottom: none;
-  }
