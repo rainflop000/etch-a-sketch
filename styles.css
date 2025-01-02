@@ -29,7 +29,7 @@
 
 .btn-container button {
     margin: 15px;
-    border: 1px solid black;
+    border: 1px solid #2c3e50 !important;
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 2px;
@@ -38,15 +38,22 @@
 
 .grid-size-btn {
     color: white;
-    background-color: black;
+    background-color: #2c3e50;
     font-weight: bold;
 }
 
 .clear-btn {
+    color: #2c3e50;
     background-color: white;
     font-weight: 10px;
     font-weight: bold;
 }
+
+.btn-container button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
 
 .btn-container button:active {
     background-color: lightgray;
@@ -64,6 +71,8 @@
     margin: 20px auto;
     box-sizing: border-box;
     margin-bottom: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: white;
 }
 
 .row {
