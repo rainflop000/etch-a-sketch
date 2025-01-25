@@ -57,36 +57,32 @@
 }
 
 .grid-container {
-    border: 2px solid black;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    max-width: 96%;
-    max-height: 96%;
-    aspect-ratio: 1;
+    width: 96%;
+    max-width: 500px;
+    height: 96vw;
+    max-height: 500px;
     margin: 20px auto;
     box-sizing: border-box;
     margin-bottom: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     background-color: white;
     cursor: pointer;
-}
-
-.row {
+  }
+  
+  .row {
     display: flex;
-    justify-content: stretch;
-    align-items: stretch;
     flex: 1;
     width: 100%;
-}
-
-.cell {
-    border-right: 0.5px solid black;
-    border-bottom: 0.5px solid black;
+  }
+  
+  .cell {
+    flex: 1;
+    border: 0.5px solid black;
     box-sizing: border-box;
-    flex: 1 1 0%;
-    flex-wrap: wrap;
-    align-items: center;
-    aspect-ratio: 1;
     transition: 0.2s;
-}
+    aspect-ratio: 1;
+    padding: 4px;
+  }
