@@ -23,61 +23,49 @@ clearBtn.addEventListener('click', () => {
 });
 
 function drawGrid(gridSize) {
-    for (let row = 0; row < gridSize; row++) {
-        const rowDiv = document.createElement('div');
-        rowDiv.classList.add('row');
+    containerDiv.style.setProperty("--grid-size", gridSize);
+    containerDiv.textContent = "";
 
-        for (let cell = 0; cell < gridSize; cell++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
+    for (let i = 0; i < gridSize * gridSize; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
 
-            // Touch event listeners
-            cell.addEventListener('touchstart', () => {
-                drawing = true;
-                cell.style.backgroundColor = 'gray';
-            });
-            cell.addEventListener('touchmove', (e) => {
-                if (drawing) {
-                    const touchTarget = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-                    if (touchTarget && touchTarget.classList.contains('cell')) {
-                        touchTarget.style.backgroundColor = 'gray';
-                    }
-                }
-            });
-            cell.addEventListener('touchend', () => {
-                drawing = false;
-            });
-
-            rowDiv.appendChild(cell);
-        }
-        containerDiv.appendChild(rowDiv);
-    }
-
-    document.querySelector('.grid-size-display').textContent = `Grid size: ${gridSize} x ${gridSize}`;
-
-    const cells = document.querySelectorAll('.cell');
-
-    // Start drawing on mouse down
-    cells.forEach(cell => {
-        cell.addEventListener('mousedown', () => {
+        // Touch events
+        cell.addEventListener("touchstart", () => {
             drawing = true;
-            cell.style.backgroundColor = 'gray';
+            cell.style.backgroundColor = "gray";
         });
-
-        // Continue drawing on mouse move
-        cell.addEventListener('mouseover', () => {
+        cell.addEventListener("touchmove", (e) => {
             if (drawing) {
-                cell.style.backgroundColor = 'gray';
+                const touchTarget = document.elementFromPoint(
+                    e.changedTouches[0].clientX,
+                    e.changedTouches[0].clientY
+                );
+                if (touchTarget && touchTarget.classList.contains("cell")) {
+                    touchTarget.style.backgroundColor = "gray";
+                }
             }
         });
-
-        // Finish drawing on mouse up
-        cell.addEventListener('mouseup', () => {
+        cell.addEventListener("touchend", () => {
             drawing = false;
         });
-    });
 
-    containerDiv.addEventListener('mouseleave', () => {
-        drawing = false;
-    });
+        // Mouse events
+        cell.addEventListener("mousedown", () => {
+            drawing = true;
+            cell.style.backgroundColor = "gray";
+        });
+        cell.addEventListener("mouseover", () => {
+            if (drawing) {
+                cell.style.backgroundColor = "gray";
+            }
+        });
+        cell.addEventListener("mouseup", () => {
+            drawing = false;
+        });
+
+        containerDiv.appendChild(cell);
+    }
+
+    document.querySelector(".grid-size-display").textContent = `Grid size: ${gridSize} x ${gridSize}`;
 }
