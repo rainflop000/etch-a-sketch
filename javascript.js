@@ -30,38 +30,54 @@ function drawGrid(gridSize) {
         for (let cell = 0; cell < gridSize; cell++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
+
+            // Touch event listeners
+            cell.addEventListener('touchstart', () => {
+                drawing = true;
+                cell.style.backgroundColor = 'gray';
+            });
+            cell.addEventListener('touchmove', (e) => {
+                if (drawing) {
+                    const touchTarget = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+                    if (touchTarget && touchTarget.classList.contains('cell')) {
+                        touchTarget.style.backgroundColor = 'gray';
+                    }
+                }
+            });
+            cell.addEventListener('touchend', () => {
+                drawing = false;
+            });
+
             rowDiv.appendChild(cell);
         }
         containerDiv.appendChild(rowDiv);
     }
 
-    // Display current grid size
     document.querySelector('.grid-size-display').textContent = `Grid size: ${gridSize} x ${gridSize}`;
 
     const cells = document.querySelectorAll('.cell');
 
-    // Start drawing
+    // Start drawing on mouse down
     cells.forEach(cell => {
         cell.addEventListener('mousedown', () => {
             drawing = true;
             cell.style.backgroundColor = 'gray';
-    });
+        });
 
-    // Continue drawing if user mouse is pressed
-    cell.addEventListener('mouseover', () => {
-        if (drawing) {
-            cell.style.backgroundColor = 'gray';
-        }
-    });
+        // Continue drawing on mouse move
+        cell.addEventListener('mouseover', () => {
+            if (drawing) {
+                cell.style.backgroundColor = 'gray';
+            }
+        });
 
-    // Finish drawing if user releases mouse
-    cell.addEventListener('mouseup', () => {
-        drawing = false;
+        // Finish drawing on mouse up
+        cell.addEventListener('mouseup', () => {
+            drawing = false;
+        });
     });
 
     containerDiv.addEventListener('mouseleave', () => {
         drawing = false;
     });
-}); 
-
 }
